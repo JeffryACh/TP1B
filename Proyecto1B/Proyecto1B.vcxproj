@@ -127,8 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="cargarVotantes.cpp" />
+    <ClCompile Include="ArbolAVL.cpp" />
+    <ClCompile Include="ListaDEnlazadaVotantes.cpp" />
+    <ClCompile Include="ListaSimpleVotantes.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ArbolBinario.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
