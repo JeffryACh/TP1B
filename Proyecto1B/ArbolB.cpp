@@ -57,26 +57,26 @@ PtrT_Votantes root;
 // Creando un nuevo nodo
 PtrT_Votantes CrearNodo(char cedula[10], char codelec[7], char sexo, char fecha[9], char numjun[6], char nombre[31], char papellido[27], char sapellido[27], PtrT_Votantes hijo)
 {
-	PtrT_Votantes NuevoNodo = new T_Votante;
-	strcpy(NuevoNodo->cedula, cedula);
-	strcpy(NuevoNodo->codelec, codelec);
-	NuevoNodo->sexo = sexo;
-	strcpy(NuevoNodo->fecha, fecha);
-	strcpy(NuevoNodo->numjun, numjun);
-	strcpy(NuevoNodo->nombre, nombre);
-	strcpy(NuevoNodo->papellido, papellido);
-	strcpy(NuevoNodo->sapellido, sapellido);
-	NuevoNodo->link[0] = root;
-	NuevoNodo->link[1] = hijo;
-	return NuevoNodo;
+    PtrT_Votantes NuevoNodo = new T_Votante;
+    strcpy_s(NuevoNodo->cedula, sizeof(NuevoNodo->cedula), cedula);
+    strcpy_s(NuevoNodo->codelec, sizeof(NuevoNodo->codelec), codelec);
+    NuevoNodo->sexo = sexo;
+    strcpy_s(NuevoNodo->fecha, sizeof(NuevoNodo->fecha), fecha);
+    strcpy_s(NuevoNodo->numjun, sizeof(NuevoNodo->numjun), numjun);
+    strcpy_s(NuevoNodo->nombre, sizeof(NuevoNodo->nombre), nombre);
+    strcpy_s(NuevoNodo->papellido, sizeof(NuevoNodo->papellido), papellido);
+    strcpy_s(NuevoNodo->sapellido, sizeof(NuevoNodo->sapellido), sapellido);
+    NuevoNodo->link[0] = root;
+    NuevoNodo->link[1] = hijo;
+    return NuevoNodo;
 }
 
 //Cargar datos de los votantes desde un archivo txt
 void CargarDatosVotantes()
 {
 	FILE* archivo;
-	archivo = fopen("Votantes.txt", "r");
-	if (archivo == NULL)
+	errno_t err = fopen_s(&archivo, "PADRON_COMPLETO.txt", "r");
+	if (err != 0)
 	{
 		cout << "Error al abrir el archivo" << endl;
 	}
@@ -85,7 +85,7 @@ void CargarDatosVotantes()
 		char cedula[10], codelec[7], sexo, fecha[9], numjun[6], nombre[31], papellido[27], sapellido[27];
 		while (!feof(archivo))
 		{
-			fscanf(archivo, "%s %s %c %s %s %s %s %s\n", cedula, codelec, &sexo, fecha, numjun, nombre, papellido, sapellido);
+			fscanf_s(archivo, "%s %s %c %s %s %s %s %s\n", cedula, sizeof(cedula), codelec, sizeof(codelec), &sexo, fecha, sizeof(fecha), numjun, sizeof(numjun), nombre, sizeof(nombre), papellido, sizeof(papellido), sapellido, sizeof(sapellido));
 			cout << cedula << " " << codelec << " " << sexo << " " << fecha << " " << numjun << " " << nombre << " " << papellido << " " << sapellido << endl;
 		}
 	}
@@ -93,25 +93,25 @@ void CargarDatosVotantes()
 }
 
 // Guardar datos de los votantes en un archivo txt a parte 
-void GuardarDatosVotantes()
-{
-	FILE* archivo;
-	archivo = fopen("Votantes.txt", "w");
-	if (archivo == NULL)
-	{
-		cout << "Error al abrir el archivo" << endl;
-	}
-	else
-	{
-		PtrT_Votantes aux = root;
-		while (aux != NULL)
-		{
-			fprintf(archivo, "%s %s %c %s %s %s %s %s\n", aux->cedula, aux->codelec, aux->sexo, aux->fecha, aux->numjun, aux->nombre, aux->papellido, aux->sapellido);
-			aux = aux->link[0];
-		}
-	}
-	fclose(archivo);
-}
+//void GuardarDatosVotantes()
+//{
+//	FILE* archivo;
+//	archivo = fopen("Votantes.txt", "w");
+//	if (archivo == NULL)
+//	{
+//		cout << "Error al abrir el archivo" << endl;
+//	}
+//	else
+//	{
+//		PtrT_Votantes aux = root;
+//		while (aux != NULL)
+//		{
+//			fprintf(archivo, "%s %s %c %s %s %s %s %s\n", aux->cedula, aux->codelec, aux->sexo, aux->fecha, aux->numjun, aux->nombre, aux->papellido, aux->sapellido);
+//			aux = aux->link[0];
+//		}
+//	}
+//	fclose(archivo);
+//}
 
 //Ordenar los votantes por cedula
 void OrdenarVotantesCedula()

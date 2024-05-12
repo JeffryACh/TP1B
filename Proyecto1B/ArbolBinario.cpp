@@ -160,18 +160,19 @@ void eliminarvotante(PtrT_Votante& Raiz, char cedula[10]) {
 			while (Aux->PtrIzquierdo != nullptr) {
 				Aux = Aux->PtrIzquierdo;
 			}
-			strcpy(Raiz->cedula, Aux->cedula);
-			strcpy(Raiz->codelec, Aux->codelec);
+			strcpy_s(Raiz->cedula, sizeof(Raiz->cedula), Aux->cedula);
+			strcpy_s(Raiz->codelec, sizeof(Raiz->codelec), Aux->codelec);
 			Raiz->sexo = Aux->sexo;
-			strcpy(Raiz->fecha, Aux->fecha);
-			strcpy(Raiz->numjun, Aux->numjun);
-			strcpy(Raiz->nombre, Aux->nombre);
-			strcpy(Raiz->papellido, Aux->papellido);
-			strcpy(Raiz->sapellido, Aux->sapellido);
+			strcpy_s(Raiz->fecha, sizeof(Raiz->fecha), Aux->fecha);
+			strcpy_s(Raiz->numjun, sizeof(Raiz->numjun), Aux->numjun);
+			strcpy_s(Raiz->nombre, sizeof(Raiz->nombre), Aux->nombre);
+			strcpy_s(Raiz->papellido, sizeof(Raiz->papellido), Aux->papellido);
+			strcpy_s(Raiz->sapellido, sizeof(Raiz->sapellido), Aux->sapellido);
 			eliminarvotante(Raiz->PtrDerecho, Aux->cedula);
 		}
 	}
 }
+
 
 //Funcion para liberar la memoria del arbol de votantes
 void liberarvotantes(PtrT_Votante& Raiz) {
@@ -193,32 +194,32 @@ void OrdenarVotantes(PtrT_Votante& Raiz) {
 	while (Aux1 != nullptr) {
 		while (Aux2 != nullptr) {
 			if (strncmp(Aux1->cedula, Aux2->cedula, 9) < 0) {
-				strcpy(cedula, Aux1->cedula);
-				strcpy(codelec, Aux1->codelec);
+				strcpy_s(cedula, sizeof(cedula), Aux1->cedula);
+				strcpy_s(codelec, sizeof(codelec), Aux1->codelec);
 				sexo = Aux1->sexo;
-				strcpy(fecha, Aux1->fecha);
-				strcpy(numjun, Aux1->numjun);
-				strcpy(nombre, Aux1->nombre);
-				strcpy(papellido, Aux1->papellido);
-				strcpy(sapellido, Aux1->sapellido);
+				strcpy_s(fecha, sizeof(fecha), Aux1->fecha);
+				strcpy_s(numjun, sizeof(numjun), Aux1->numjun);
+				strcpy_s(nombre, sizeof(nombre), Aux1->nombre);
+				strcpy_s(papellido, sizeof(papellido), Aux1->papellido);
+				strcpy_s(sapellido, sizeof(sapellido), Aux1->sapellido);
 
-				strcpy(Aux1->cedula, Aux2->cedula);
-				strcpy(Aux1->codelec, Aux2->codelec);
+				strcpy_s(Aux1->cedula, sizeof(Aux1->cedula), Aux2->cedula);
+				strcpy_s(Aux1->codelec, sizeof(Aux1->codelec), Aux2->codelec);
 				Aux1->sexo = Aux2->sexo;
-				strcpy(Aux1->fecha, Aux2->fecha);
-				strcpy(Aux1->numjun, Aux2->numjun);
-				strcpy(Aux1->nombre, Aux2->nombre);
-				strcpy(Aux1->papellido, Aux2->papellido);
-				strcpy(Aux1->sapellido, Aux2->sapellido);
+				strcpy_s(Aux1->fecha, sizeof(Aux1->fecha), Aux2->fecha);
+				strcpy_s(Aux1->numjun, sizeof(Aux1->numjun), Aux2->numjun);
+				strcpy_s(Aux1->nombre, sizeof(Aux1->nombre), Aux2->nombre);
+				strcpy_s(Aux1->papellido, sizeof(Aux1->papellido), Aux2->papellido);
+				strcpy_s(Aux1->sapellido, sizeof(Aux1->sapellido), Aux2->sapellido);
 
-				strcpy(Aux2->cedula, cedula);
-				strcpy(Aux2->codelec, codelec);
+				strcpy_s(Aux2->cedula, sizeof(Aux2->cedula), cedula);
+				strcpy_s(Aux2->codelec, sizeof(Aux2->codelec), codelec);
 				Aux2->sexo = sexo;
-				strcpy(Aux2->fecha, fecha);
-				strcpy(Aux2->numjun, numjun);
-				strcpy(Aux2->nombre, nombre);
-				strcpy(Aux2->papellido, papellido);
-				strcpy(Aux2->sapellido, sapellido);
+				strcpy_s(Aux2->fecha, sizeof(Aux2->fecha), fecha);
+				strcpy_s(Aux2->numjun, sizeof(Aux2->numjun), numjun);
+				strcpy_s(Aux2->nombre, sizeof(Aux2->nombre), nombre);
+				strcpy_s(Aux2->papellido, sizeof(Aux2->papellido), papellido);
+				strcpy_s(Aux2->sapellido, sizeof(Aux2->sapellido), sapellido);
 			}
 			Aux2 = Aux2->PtrDerecho;
 		}
@@ -227,17 +228,17 @@ void OrdenarVotantes(PtrT_Votante& Raiz) {
 	}
 }
 
-//Funcion para guardar los votantes en un archivo de texto aparte
-void guardarvotantes(PtrT_Votante Raiz) {
-	PtrT_Votante Aux = Raiz;
-	FILE* archivo;
-	archivo = fopen("Votantes.txt", "w");
-	while (Aux != nullptr) {
-		fprintf(archivo, "%s %s %c %s %s %s %s %s\n", Aux->cedula, Aux->codelec, Aux->sexo, Aux->fecha, Aux->numjun, Aux->nombre, Aux->papellido, Aux->sapellido);
-		Aux = Aux->PtrDerecho;
-	}
-	fclose(archivo);
-}
+////Funcion para guardar los votantes en un archivo de texto aparte
+//void guardarvotantes(PtrT_Votante Raiz) {
+//	PtrT_Votante Aux = Raiz;
+//	FILE* archivo;
+//	archivo = fopen("Votantes.txt", "w");
+//	while (Aux != nullptr) {
+//		fprintf(archivo, "%s %s %c %s %s %s %s %s\n", Aux->cedula, Aux->codelec, Aux->sexo, Aux->fecha, Aux->numjun, Aux->nombre, Aux->papellido, Aux->sapellido);
+//		Aux = Aux->PtrDerecho;
+//	}
+//	fclose(archivo);
+//}
 
 //Funcion para inicializar la lista de votantes
 void inicializarvotantes(PtrT_Votante& Raiz) {
@@ -246,8 +247,8 @@ void inicializarvotantes(PtrT_Votante& Raiz) {
 
 void CargarVotantes(PtrT_Votante& Raiz) {
 	FILE* archivo;
-	archivo = fopen("PadronElectoral.txt", "r");
-	if (archivo == NULL) {
+	errno_t err = fopen_s(&archivo, "PADRON_COMPLETO.txt", "r");
+	if (err != 0) {
 		cout << "No se pudo abrir el archivo" << endl;
 	}
 	else {

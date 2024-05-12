@@ -1,0 +1,9 @@
+﻿main.obj : error LNK2005: ya se definió "struct T_VotanteDoble * __cdecl BuscarVotante(struct T_VotanteDoble * &,char * const)" (?BuscarVotante@@YAPEAUT_VotanteDoble@@AEAPEAU1@QEAD@Z) en ListaSimpleVotantes.obj
+main.obj : error LNK2005: ya se definió "void __cdecl GuardarVotantes(struct T_VotanteDoble * &)" (?GuardarVotantes@@YAXAEAPEAUT_VotanteDoble@@@Z) en ListaSimpleVotantes.obj
+main.obj : error LNK2005: ya se definió "void __cdecl LiberarVotantes(struct T_VotanteDoble * &)" (?LiberarVotantes@@YAXAEAPEAUT_VotanteDoble@@@Z) en ListaSimpleVotantes.obj
+main.obj : error LNK2005: ya se definió "void __cdecl OrdenarVotantes(struct T_VotanteDoble * &)" (?OrdenarVotantes@@YAXAEAPEAUT_VotanteDoble@@@Z) en ListaSimpleVotantes.obj
+main.obj : error LNK2005: ya se definió "void __cdecl agregarvotante(struct T_VotanteDoble * &,char * const)" (?agregarvotante@@YAXAEAPEAUT_VotanteDoble@@QEAD@Z) en ListaSimpleVotantes.obj
+main.obj : error LNK2005: ya se definió "void __cdecl cargarVotantes(void)" (?cargarVotantes@@YAXXZ) en ListaSimpleVotantes.obj
+main.obj : error LNK2005: ya se definió "void __cdecl inicializarvotantes(struct T_VotanteDoble * &)" (?inicializarvotantes@@YAXAEAPEAUT_VotanteDoble@@@Z) en ListaSimpleVotantes.obj
+main.obj : error LNK2005: ya se definió "void __cdecl mostrarVotantes(struct T_VotanteDoble * &)" (?mostrarVotantes@@YAXAEAPEAUT_VotanteDoble@@@Z) en ListaSimpleVotantes.obj
+C:\Users\XPC\OneDrive - Estudiantes ITCR\Documentos\Ing. Computacion\Quinto Semestre\Estructuras de Datos\TP\TP1B\TP1B\Proyecto1B\x64\Debug\Proyecto1B.exe : fatal error LNK1169: se encontraron uno o más símbolos definidos simultáneamente

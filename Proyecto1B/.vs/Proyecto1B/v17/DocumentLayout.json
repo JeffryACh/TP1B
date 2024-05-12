@@ -3,31 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\XPC\\OneDrive - Estudiantes ITCR\\Documentos\\Ing. Computacion\\Quinto Semestre\\Estructuras de Datos\\TP\\TP1B\\TP1B\\Proyecto1B\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E344AA6C-1872-4CFC-A09D-F7963DE84821}|Proyecto1B.vcxproj|C:\\Users\\XPC\\OneDrive - Estudiantes ITCR\\Documentos\\Ing. Computacion\\Quinto Semestre\\Estructuras de Datos\\TP\\TP1B\\TP1B\\Proyecto1B\\ArbolB.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E344AA6C-1872-4CFC-A09D-F7963DE84821}|Proyecto1B.vcxproj|solutionrelative:ArbolB.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\XPC\\OneDrive - Estudiantes ITCR\\Documentos\\Ing. Computacion\\Quinto Semestre\\Estructuras de Datos\\TP\\TP1B\\TP1B\\BTREE.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E344AA6C-1872-4CFC-A09D-F7963DE84821}|Proyecto1B.vcxproj|C:\\Users\\XPC\\OneDrive - Estudiantes ITCR\\Documentos\\Ing. Computacion\\Quinto Semestre\\Estructuras de Datos\\TP\\TP1B\\TP1B\\Proyecto1B\\ArbolAVL.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E344AA6C-1872-4CFC-A09D-F7963DE84821}|Proyecto1B.vcxproj|solutionrelative:ArbolAVL.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E344AA6C-1872-4CFC-A09D-F7963DE84821}|Proyecto1B.vcxproj|C:\\Users\\XPC\\OneDrive - Estudiantes ITCR\\Documentos\\Ing. Computacion\\Quinto Semestre\\Estructuras de Datos\\TP\\TP1B\\TP1B\\Proyecto1B\\ArbolBinario.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E344AA6C-1872-4CFC-A09D-F7963DE84821}|Proyecto1B.vcxproj|solutionrelative:ArbolBinario.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E344AA6C-1872-4CFC-A09D-F7963DE84821}|Proyecto1B.vcxproj|C:\\Users\\XPC\\OneDrive - Estudiantes ITCR\\Documentos\\Ing. Computacion\\Quinto Semestre\\Estructuras de Datos\\TP\\TP1B\\TP1B\\Proyecto1B\\ListaSimpleVotantes.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{E344AA6C-1872-4CFC-A09D-F7963DE84821}|Proyecto1B.vcxproj|solutionrelative:ListaSimpleVotantes.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E344AA6C-1872-4CFC-A09D-F7963DE84821}|Proyecto1B.vcxproj|C:\\Users\\XPC\\OneDrive - Estudiantes ITCR\\Documentos\\Ing. Computacion\\Quinto Semestre\\Estructuras de Datos\\TP\\TP1B\\TP1B\\Proyecto1B\\ListaDEnlazadaVotantes.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E344AA6C-1872-4CFC-A09D-F7963DE84821}|Proyecto1B.vcxproj|solutionrelative:ListaDEnlazadaVotantes.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E344AA6C-1872-4CFC-A09D-F7963DE84821}|Proyecto1B.vcxproj|C:\\Users\\XPC\\OneDrive - Estudiantes ITCR\\Documentos\\Ing. Computacion\\Quinto Semestre\\Estructuras de Datos\\TP\\TP1B\\TP1B\\Proyecto1B\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{E344AA6C-1872-4CFC-A09D-F7963DE84821}|Proyecto1B.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E344AA6C-1872-4CFC-A09D-F7963DE84821}|Proyecto1B.vcxproj|C:\\Users\\XPC\\OneDrive - Estudiantes ITCR\\Documentos\\Ing. Computacion\\Quinto Semestre\\Estructuras de Datos\\TP\\TP1B\\TP1B\\Proyecto1B\\PADRON_COMPLETO.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{E344AA6C-1872-4CFC-A09D-F7963DE84821}|Proyecto1B.vcxproj|solutionrelative:PADRON_COMPLETO.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,79 +27,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "BTREE.cpp",
-              "DocumentMoniker": "C:\\Users\\XPC\\OneDrive - Estudiantes ITCR\\Documentos\\Ing. Computacion\\Quinto Semestre\\Estructuras de Datos\\TP\\TP1B\\TP1B\\BTREE.cpp",
-              "RelativeDocumentMoniker": "..\\BTREE.cpp",
-              "ToolTip": "C:\\Users\\XPC\\OneDrive - Estudiantes ITCR\\Documentos\\Ing. Computacion\\Quinto Semestre\\Estructuras de Datos\\TP\\TP1B\\TP1B\\BTREE.cpp",
-              "RelativeToolTip": "..\\BTREE.cpp",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-07T18:14:54.953Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ArbolB.cpp",
-              "DocumentMoniker": "C:\\Users\\XPC\\OneDrive - Estudiantes ITCR\\Documentos\\Ing. Computacion\\Quinto Semestre\\Estructuras de Datos\\TP\\TP1B\\TP1B\\Proyecto1B\\ArbolB.cpp",
-              "RelativeDocumentMoniker": "ArbolB.cpp",
-              "ToolTip": "C:\\Users\\XPC\\OneDrive - Estudiantes ITCR\\Documentos\\Ing. Computacion\\Quinto Semestre\\Estructuras de Datos\\TP\\TP1B\\TP1B\\Proyecto1B\\ArbolB.cpp",
-              "RelativeToolTip": "ArbolB.cpp",
-              "ViewState": "AQIAABgAAAAAAAAAAAAAAGYAAAACAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-07T18:12:24.89Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ArbolAVL.cpp",
-              "DocumentMoniker": "C:\\Users\\XPC\\OneDrive - Estudiantes ITCR\\Documentos\\Ing. Computacion\\Quinto Semestre\\Estructuras de Datos\\TP\\TP1B\\TP1B\\Proyecto1B\\ArbolAVL.cpp",
-              "RelativeDocumentMoniker": "ArbolAVL.cpp",
-              "ToolTip": "C:\\Users\\XPC\\OneDrive - Estudiantes ITCR\\Documentos\\Ing. Computacion\\Quinto Semestre\\Estructuras de Datos\\TP\\TP1B\\TP1B\\Proyecto1B\\ArbolAVL.cpp",
-              "RelativeToolTip": "ArbolAVL.cpp",
-              "ViewState": "AQIAACYAAAAAAAAAAAAowCQAAAA8AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-07T17:28:09.882Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ArbolBinario.cpp",
-              "DocumentMoniker": "C:\\Users\\XPC\\OneDrive - Estudiantes ITCR\\Documentos\\Ing. Computacion\\Quinto Semestre\\Estructuras de Datos\\TP\\TP1B\\TP1B\\Proyecto1B\\ArbolBinario.cpp",
-              "RelativeDocumentMoniker": "ArbolBinario.cpp",
-              "ToolTip": "C:\\Users\\XPC\\OneDrive - Estudiantes ITCR\\Documentos\\Ing. Computacion\\Quinto Semestre\\Estructuras de Datos\\TP\\TP1B\\TP1B\\Proyecto1B\\ArbolBinario.cpp",
-              "RelativeToolTip": "ArbolBinario.cpp",
-              "ViewState": "AQIAAPcAAAAAAAAAAAAAAAMBAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-07T17:23:34.355Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ListaDEnlazadaVotantes.cpp",
-              "DocumentMoniker": "C:\\Users\\XPC\\OneDrive - Estudiantes ITCR\\Documentos\\Ing. Computacion\\Quinto Semestre\\Estructuras de Datos\\TP\\TP1B\\TP1B\\Proyecto1B\\ListaDEnlazadaVotantes.cpp",
-              "RelativeDocumentMoniker": "ListaDEnlazadaVotantes.cpp",
-              "ToolTip": "C:\\Users\\XPC\\OneDrive - Estudiantes ITCR\\Documentos\\Ing. Computacion\\Quinto Semestre\\Estructuras de Datos\\TP\\TP1B\\TP1B\\Proyecto1B\\ListaDEnlazadaVotantes.cpp",
-              "RelativeToolTip": "ListaDEnlazadaVotantes.cpp",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABgAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-07T17:07:38.318Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ListaSimpleVotantes.cpp",
-              "DocumentMoniker": "C:\\Users\\XPC\\OneDrive - Estudiantes ITCR\\Documentos\\Ing. Computacion\\Quinto Semestre\\Estructuras de Datos\\TP\\TP1B\\TP1B\\Proyecto1B\\ListaSimpleVotantes.cpp",
-              "RelativeDocumentMoniker": "ListaSimpleVotantes.cpp",
-              "ToolTip": "C:\\Users\\XPC\\OneDrive - Estudiantes ITCR\\Documentos\\Ing. Computacion\\Quinto Semestre\\Estructuras de Datos\\TP\\TP1B\\TP1B\\Proyecto1B\\ListaSimpleVotantes.cpp",
-              "RelativeToolTip": "ListaSimpleVotantes.cpp",
-              "ViewState": "AQIAABIAAAAAAAAAAAAAAAwBAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-30T00:07:36.188Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\Users\\XPC\\OneDrive - Estudiantes ITCR\\Documentos\\Ing. Computacion\\Quinto Semestre\\Estructuras de Datos\\TP\\TP1B\\TP1B\\Proyecto1B\\main.cpp",
               "RelativeDocumentMoniker": "main.cpp",
@@ -122,7 +34,34 @@
               "RelativeToolTip": "main.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-29T23:55:53.862Z"
+              "WhenOpened": "2024-04-29T23:55:53.862Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ListaSimpleVotantes.cpp",
+              "DocumentMoniker": "C:\\Users\\XPC\\OneDrive - Estudiantes ITCR\\Documentos\\Ing. Computacion\\Quinto Semestre\\Estructuras de Datos\\TP\\TP1B\\TP1B\\Proyecto1B\\ListaSimpleVotantes.cpp",
+              "RelativeDocumentMoniker": "ListaSimpleVotantes.cpp",
+              "ToolTip": "C:\\Users\\XPC\\OneDrive - Estudiantes ITCR\\Documentos\\Ing. Computacion\\Quinto Semestre\\Estructuras de Datos\\TP\\TP1B\\TP1B\\Proyecto1B\\ListaSimpleVotantes.cpp",
+              "RelativeToolTip": "ListaSimpleVotantes.cpp",
+              "ViewState": "AQIAAMAAAAAAAAAAAAAAAMAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-30T00:07:36.188Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PADRON_COMPLETO.txt",
+              "DocumentMoniker": "C:\\Users\\XPC\\OneDrive - Estudiantes ITCR\\Documentos\\Ing. Computacion\\Quinto Semestre\\Estructuras de Datos\\TP\\TP1B\\TP1B\\Proyecto1B\\PADRON_COMPLETO.txt",
+              "RelativeDocumentMoniker": "PADRON_COMPLETO.txt",
+              "ToolTip": "C:\\Users\\XPC\\OneDrive - Estudiantes ITCR\\Documentos\\Ing. Computacion\\Quinto Semestre\\Estructuras de Datos\\TP\\TP1B\\TP1B\\Proyecto1B\\PADRON_COMPLETO.txt",
+              "RelativeToolTip": "PADRON_COMPLETO.txt",
+              "ViewState": "AQIAAD1INwAAAAAAAAAAAD9INwAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-05-08T18:57:43.726Z",
+              "EditorCaption": ""
             }
           ]
         }

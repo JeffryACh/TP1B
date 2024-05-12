@@ -180,15 +180,14 @@ void eliminarvotante(PtrT_Votante& Raiz, char cedula[10]) {
 					Ant2 = Aux2;
 					Aux2 = Aux2->PtrDerecho;
 				}
-				strcpy(Aux->cedula, Aux2->cedula);
-				strcpy(Aux->codelec, Aux2->codelec);
+				strcpy_s(Aux->cedula, sizeof(Aux->cedula), Aux2->cedula);
+				strcpy_s(Aux->codelec, sizeof(Aux->codelec), Aux2->codelec);
 				Aux->sexo = Aux2->sexo;
-				strcpy(Aux->fecha, Aux2->fecha);
-				strcpy(Aux->numjun, 
-					Aux2->numjun);
-				strcpy(Aux->nombre, Aux2->nombre);
-				strcpy(Aux->papellido, Aux2->papellido);
-				strcpy(Aux->sapellido, Aux2->sapellido);
+				strcpy_s(Aux->fecha, sizeof(Aux->fecha), Aux2->fecha);
+				strcpy_s(Aux->numjun, sizeof(Aux->numjun), Aux2->numjun);
+				strcpy_s(Aux->nombre, sizeof(Aux->nombre), Aux2->nombre);
+				strcpy_s(Aux->papellido, sizeof(Aux->papellido), Aux2->papellido);
+				strcpy_s(Aux->sapellido, sizeof(Aux->sapellido), Aux2->sapellido);
 			}
 		}
 	}
@@ -310,14 +309,14 @@ void eliminarAVL(PtrT_Votante& Raiz, char cedula[10]) {
 			while (Aux->PtrIzquierdo != NULL) {
 				Aux = Aux->PtrIzquierdo;
 			}
-			strcpy(Raiz->cedula, Aux->cedula);
-			strcpy(Raiz->codelec, Aux->codelec);
+			strcpy_s(Raiz->cedula, sizeof(Raiz->cedula), Aux->cedula);
+			strcpy_s(Raiz->codelec, sizeof(Raiz->codelec), Aux->codelec);
 			Raiz->sexo = Aux->sexo;
-			strcpy(Raiz->fecha, Aux->fecha);
-			strcpy(Raiz->numjun, Aux->numjun);
-			strcpy(Raiz->nombre, Aux->nombre);
-			strcpy(Raiz->papellido, Aux->papellido);
-			strcpy(Raiz->sapellido, Aux->sapellido);
+			strcpy_s(Raiz->fecha, sizeof(Raiz->fecha), Aux->fecha);
+			strcpy_s(Raiz->numjun, sizeof(Raiz->numjun), Aux->numjun);
+			strcpy_s(Raiz->nombre, sizeof(Raiz->nombre), Aux->nombre);
+			strcpy_s(Raiz->papellido, sizeof(Raiz->papellido), Aux->papellido);
+			strcpy_s(Raiz->sapellido, sizeof(Raiz->sapellido), Aux->sapellido);
 			eliminarAVL(Raiz->PtrDerecho, Aux->cedula);
 		}
 	}
@@ -371,8 +370,8 @@ void imprimirAVL(PtrT_Votante Raiz) {
 void cargarVotantesAVL(PtrT_Votante& Raiz) {
 	FILE* archivo;
 	char agregado[118];
-	archivo = fopen("padron.txt", "r");
-	if (archivo == NULL) {
+	errno_t err = fopen_s(&archivo, "PADRON_COMPLETO.txt", "r");
+	if (err != 0) {
 		cout << "Error al abrir el archivo" << endl;
 	}
 	else {
@@ -385,14 +384,14 @@ void cargarVotantesAVL(PtrT_Votante& Raiz) {
 }
 
 //Funcion para guardar los votantes del arbol AVL en un archivo de texto a parte
-void guardarVotantesAVL(PtrT_Votante Raiz) {
-	FILE* archivo;
-	archivo = fopen("VotantesAVL.txt", "w");
-	if (archivo == NULL) {
-		cout << "Error al abrir el archivo" << endl;
-	}
-	else {
-		imprimirAVL(Raiz);
-	}
-	fclose(archivo);
-}
+//void guardarVotantesAVL(PtrT_Votante Raiz) {
+//	FILE* archivo;
+//	archivo = fopen("VotantesAVL.txt", "w");
+//	if (archivo == NULL) {
+//		cout << "Error al abrir el archivo" << endl;
+//	}
+//	else {
+//		imprimirAVL(Raiz);
+//	}
+//	fclose(archivo);
+//}

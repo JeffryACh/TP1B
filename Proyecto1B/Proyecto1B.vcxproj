@@ -127,12 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ArbolAVL.cpp" />
-    <ClCompile Include="ArbolB.cpp" />
-    <ClCompile Include="ListaDEnlazadaVotantes.cpp" />
     <ClCompile Include="ListaSimpleVotantes.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="ArbolBinario.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="PADRON_COMPLETO.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

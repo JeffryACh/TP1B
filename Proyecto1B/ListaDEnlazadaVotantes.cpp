@@ -134,23 +134,23 @@ void inicializarvotantes(PtrT_Votante& ListaV) {
 	ListaV = NULL;
 }
 
-//Funcion para guardar la lista de votantes en un archivo de texto aparte
-void guardarvotantes(PtrT_Votante ListaV) {
-	PtrT_Votante Aux = ListaV;
-	FILE* archivo;
-	archivo = fopen("Votantes.txt", "w");
-	while (Aux != NULL) {
-		fprintf(archivo, "%s %s %c %s %s %s %s %s\n", Aux->cedula, Aux->codelec, Aux->sexo, Aux->fecha, Aux->numjun, Aux->nombre, Aux->papellido, Aux->sapellido);
-		Aux = Aux->PtrSiguiente;
-	}
-	fclose(archivo);
-}
+////Funcion para guardar la lista de votantes en un archivo de texto aparte
+//void guardarvotantes(PtrT_Votante ListaV) {
+//	PtrT_Votante Aux = ListaV;
+//	FILE* archivo;
+//	archivo = fopen("Votantes.txt", "w");
+//	while (Aux != NULL) {
+//		fprintf(archivo, "%s %s %c %s %s %s %s %s\n", Aux->cedula, Aux->codelec, Aux->sexo, Aux->fecha, Aux->numjun, Aux->nombre, Aux->papellido, Aux->sapellido);
+//		Aux = Aux->PtrSiguiente;
+//	}
+//	fclose(archivo);
+//}
 
 //Funcion para cargar la lista de votantes desde un archivo de texto
 void cargarvotantes(PtrT_Votante& ListaV) {
 	FILE* archivo;
-	archivo = fopen("Votantes.txt", "r");
-	if (archivo == NULL) {
+	errno_t err = fopen_s(&archivo, "PADRON_COMPLETO.txt", "r");
+	if (err != 0) {
 		cout << "No se pudo abrir el archivo" << endl;
 	}
 	else {
