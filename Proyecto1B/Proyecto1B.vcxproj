@@ -127,6 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ArbolAVL.cpp" />
+    <ClCompile Include="ArbolB.cpp" />
+    <ClCompile Include="ArbolBinario.cpp" />
+    <ClCompile Include="ListaDEnlazadaVotantes.cpp" />
+    <ClCompile Include="listaEnlazada.cpp" />
     <ClCompile Include="ListaSimpleVotantes.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>

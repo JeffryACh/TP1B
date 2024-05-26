@@ -36,7 +36,7 @@ using namespace std;
 	- char sapellido[27]: segundo apellido del votante
 	- T_Votante * PtrSiguiente: puntero al siguiente nodo de la lista
 */
-typedef struct T_Votante { //Se define la estructura para los votantes
+typedef struct T_VotanteDoble { //Se define la estructura para los votantes
 	char cedula[10];
 	char codelec[7];
 	char sexo;
@@ -45,44 +45,30 @@ typedef struct T_Votante { //Se define la estructura para los votantes
 	char nombre[31];
 	char papellido[27];
 	char sapellido[27];
-	T_Votante* PtrSiguiente;
-}*PtrT_Votante; //Se define el puntero para la estructura de votantes
+	T_VotanteDoble* PtrSiguiente;
+	T_VotanteDoble* PtrAnterior;
+}*PtrT_VotanteDoble; //Se define el puntero para la estructura de votantes
 
 //Funcion para agregar un votante, recibe como parametro la lista de votantes y la LINEA DE TEXTO del padron electoral
 //extrae cada uno de los atributos de la linea y los almacena en un nodo de la lista de votantes
-void agregarvotante(PtrT_Votante& ListaV, char agregado[118]) {
-	PtrT_Votante Aux = new (T_Votante);
-	Aux->PtrSiguiente = ListaV;
-	ListaV = Aux;
-
-	for (int ce = 0; ce < 9; ce++) {
-		ListaV->cedula[ce] = agregado[ce];
+void agregarVotanteDoble(PtrT_VotanteDoble& ListaVD, char agregado[118]) {
+	PtrT_VotanteDoble Aux = new (T_VotanteDoble);
+	Aux->PtrSiguiente = ListaVD;
+	Aux->PtrAnterior = NULL;
+	if (ListaVD != NULL) {
+		ListaVD->PtrAnterior = Aux;
 	}
-	ListaV->cedula[9] = '\0';
+	ListaVD = Aux;
 
-	for (int co = 10; co < 16; co++) {
-		ListaV->codelec[co - 10] = agregado[co];
-	}
-	ListaV->codelec[6] = '\0';
-
-	ListaV->sexo = agregado[17];
 }
 
 //Funcion para imprimir la lista de votantes
-void imprimirvotantes(PtrT_Votante ListaV) {
-	PtrT_Votante Aux = ListaV;
+void imprimirVotantesDobles(PtrT_VotanteDoble ListaVD) {
+PtrT_VotanteDoble Aux = ListaVD;
 	while (Aux != NULL) {
-		cout << "Cedula: " << Aux->cedula << endl;
-		cout << "Codigo Electoral: " << Aux->codelec << endl;
-		cout << "Sexo: " << Aux->sexo << endl;
-		cout << "Fecha de Nacimiento: " << Aux->fecha << endl;
-		cout << "Numero de Junta: " << Aux->numjun << endl;
-		cout << "Nombre: " << Aux->nombre << endl;
-		cout << "Primer Apellido: " << Aux->papellido << endl;
-		cout << "Segundo Apellido: " << Aux->sapellido << endl;
-		cout << endl;
+		cout << Aux->cedula << " " << Aux->codelec << " " << Aux->sexo << " " << Aux->fecha << " " << Aux->numjun << " " << Aux->nombre << " " << Aux->papellido << " " << Aux->sapellido << endl;
 		Aux = Aux->PtrSiguiente;
-	}
+	}}
 }
 
 //Funcion para buscar un votante por cedula
