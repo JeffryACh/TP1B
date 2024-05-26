@@ -72,7 +72,7 @@ PtrT_Votantes CrearNodo(char cedula[10], char codelec[7], char sexo, char fecha[
 }
 
 //Cargar datos de los votantes desde un archivo txt
-void CargarDatosVotantes()
+void CargarDatosVotantesB()
 {
 	FILE* archivo;
 	errno_t err = fopen_s(&archivo, "PADRON_COMPLETO.txt", "r");
@@ -92,29 +92,29 @@ void CargarDatosVotantes()
 	fclose(archivo);
 }
 
-// Guardar datos de los votantes en un archivo txt a parte 
-//void GuardarDatosVotantes()
-//{
-//	FILE* archivo;
-//	archivo = fopen("Votantes.txt", "w");
-//	if (archivo == NULL)
-//	{
-//		cout << "Error al abrir el archivo" << endl;
-//	}
-//	else
-//	{
-//		PtrT_Votantes aux = root;
-//		while (aux != NULL)
-//		{
-//			fprintf(archivo, "%s %s %c %s %s %s %s %s\n", aux->cedula, aux->codelec, aux->sexo, aux->fecha, aux->numjun, aux->nombre, aux->papellido, aux->sapellido);
-//			aux = aux->link[0];
-//		}
-//	}
-//	fclose(archivo);
-//}
+// Funcion que guarda los votantes en un archivo llamado 'VotantesB'
+void GuardarVotantesB()
+{
+	FILE* archivo;
+	errno_t err = fopen_s(&archivo, "VotantesB.txt", "w");
+	if (err != 0)
+	{
+		cout << "Error al abrir el archivo" << endl;
+	}
+	else
+	{
+		PtrT_Votantes aux = root;
+		while (aux != NULL)
+		{
+			fprintf(archivo, "%s %s %c %s %s %s %s %s\n", aux->cedula, aux->codelec, aux->sexo, aux->fecha, aux->numjun, aux->nombre, aux->papellido, aux->sapellido);
+			aux = aux->link[0];
+		}
+	}
+	fclose(archivo);
+}
 
 //Ordenar los votantes por cedula
-void OrdenarVotantesCedula()
+void OrdenarVotantesB()
 {
 	PtrT_Votantes aux = root;
 	PtrT_Votantes aux2 = root;
@@ -130,6 +130,91 @@ void OrdenarVotantesCedula()
 			}
 			aux2 = aux2->link[0];
 		}
+		aux = aux->link[0];
+	}
+}
+
+// Esta funcion elimina un votante
+void EliminarVotanteB(char cedula[10])
+{
+	PtrT_Votantes aux = root;
+	PtrT_Votantes aux2 = root;
+	while (aux != NULL)
+	{
+		if (strcmp(aux->cedula, cedula) == 0)
+		{
+			if (aux == root)
+			{
+				root = root->link[0];
+			}
+			else
+			{
+				aux2->link[0] = aux->link[0];
+			}
+			delete aux;
+			return;
+		}
+		aux2 = aux;
+		aux = aux->link[0];
+	}
+}
+
+// Esta funcion guarda los votantes en un archivo de nombre 'VotantesB.txt'
+void GuardarVotantesB()
+{
+	FILE* archivo;
+	errno_t err = fopen_s(&archivo, "VotantesB.txt", "w");
+	if (err != 0)
+	{
+		cout << "Error al abrir el archivo" << endl;
+	}
+	else
+	{
+		PtrT_Votantes aux = root;
+		while (aux != NULL)
+		{
+			fprintf(archivo, "%s %s %c %s %s %s %s %s\n", aux->cedula, aux->codelec, aux->sexo, aux->fecha, aux->numjun, aux->nombre, aux->papellido, aux->sapellido);
+			aux = aux->link[0];
+		}
+	}
+	fclose(archivo);
+}
+
+// esta funcion limpia la memoria
+void LimpiarMemoriaB()
+{
+	PtrT_Votantes aux = root;
+	PtrT_Votantes aux2 = root;
+	while (aux != NULL)
+	{
+		aux2 = aux;
+		aux = aux->link[0];
+		delete aux2;
+	}
+}
+
+// esta funcion busca y retorna un votante por numero de cedula
+PtrT_Votantes BuscarVotanteB(char cedula[10])
+{
+	PtrT_Votantes aux = root;
+	while (aux != NULL)
+	{
+		if (strcmp(aux->cedula, cedula) == 0)
+		{
+			return aux;
+		}
+		aux = aux->link[0];
+	}
+	return NULL;
+}
+
+// Funcion que imprime a los votantes en consola
+void ImprimirVotantesB()
+{
+	PtrT_Votantes aux = root;
+	while (aux != NULL)
+	{
+		cout << aux->cedula << " " << aux->codelec << " " << aux->sexo << " " << aux->fecha << " " << aux->numjun << " " << aux->nombre << " " << aux->papellido << " " << aux->sapellido << endl;
 		aux = aux->link[0];
 	}
 }

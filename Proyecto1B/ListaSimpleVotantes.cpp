@@ -39,7 +39,7 @@ typedef struct T_Votante { //Se define la estructura para los votantes
 
 //Funcion para agregar un votante, recibe como parametro la lista de votantes y la LINEA DE TEXTO del padron electoral
 //extrae cada uno de los atributos de la linea y los almacena en un nodo de la lista de votantes
-void agregarvotante(PtrT_Votante& ListaV, char agregado[118]) {
+void agregarVotanteSimple(PtrT_Votante& ListaV, char agregado[118]) {
     PtrT_Votante Aux = new (T_Votante);
     Aux->PtrSiguiente = ListaV;
     ListaV = Aux;
@@ -58,7 +58,7 @@ void agregarvotante(PtrT_Votante& ListaV, char agregado[118]) {
 }
 
 //Funcion para imprimir la lista de votantes
-void imprimirvotantes(PtrT_Votante ListaV) {
+void imprimirVotantesSimples(PtrT_Votante ListaV) {
     PtrT_Votante Aux = ListaV;
     while (Aux != NULL) {
         cout << "Cedula: " << Aux->cedula << endl;
@@ -75,7 +75,7 @@ void imprimirvotantes(PtrT_Votante ListaV) {
 }
 //Funcion para liberar los votantes en estructuras de memoria dinamica de la lista enlazada hasta dejar la lista en NULL
 //Funcion para liberar los votantes en estructuras de memoria dinamica de la lista doblemente enlazada hasta dejar la lista en NULL
-void eliminarvotante(PtrT_Votante& ListaV, const char* cedula) {
+void eliminarVotanteSimple(PtrT_Votante& ListaV, const char* cedula) {
     PtrT_Votante Aux = ListaV;
     PtrT_Votante prev = NULL;
     while (Aux != NULL) {
@@ -95,7 +95,7 @@ void eliminarvotante(PtrT_Votante& ListaV, const char* cedula) {
 }
 
 //Funcion para liberar la memoria de la lista de votantes
-void liberarvotantes(PtrT_Votante& ListaV) {
+void liberarVotantesSimples(PtrT_Votante& ListaV) {
     PtrT_Votante Aux = ListaV;
     while (Aux != NULL) {
         ListaV = Aux->PtrSiguiente;
@@ -106,7 +106,7 @@ void liberarvotantes(PtrT_Votante& ListaV) {
     system("pause");
 }
 
-void insertarvotante(PtrT_Votante& ListaV, const char* cedula) {
+void insertarVotanteSimple(PtrT_Votante& ListaV, const char* cedula) {
     PtrT_Votante nuevo = new T_Votante;
     strcpy_s(nuevo->cedula, sizeof(nuevo->cedula), cedula);
     nuevo->PtrSiguiente = ListaV;
@@ -114,7 +114,7 @@ void insertarvotante(PtrT_Votante& ListaV, const char* cedula) {
 }
 
 //Funci?n para inicializar la lista de votantes
-void inicializarvotantes(PtrT_Votante& ListaV) {
+void inicializarVotantesSimples(PtrT_Votante& ListaV) {
 	ListaV = NULL;
 }
 
@@ -122,7 +122,7 @@ void inicializarvotantes(PtrT_Votante& ListaV) {
 
 // Ordena votantes por cedula
 // Function to search for a voter by ID
-PtrT_Votante buscarvotante(PtrT_Votante ListaV, const char* cedula) {
+PtrT_Votante buscarVotanteSimple(PtrT_Votante ListaV, const char* cedula) {
     PtrT_Votante Aux = ListaV;
     while (Aux != NULL) {
         if (strcmp(Aux->cedula, cedula) == 0) {
@@ -134,7 +134,7 @@ PtrT_Votante buscarvotante(PtrT_Votante ListaV, const char* cedula) {
 }
 
 // Funcion para guardar los votantes en un archivo de texto aparte
-void GuardarVotantes(PtrT_Votante& ListaV) {
+void GuardarVotantesSimples(PtrT_Votante& ListaV) {
     FILE* archivo;
     fopen_s(&archivo, "Votantes.txt", "w");
     if (NULL == archivo) {
@@ -154,7 +154,7 @@ void GuardarVotantes(PtrT_Votante& ListaV) {
 
 
 
-void cargarvotantes(PtrT_Votante& ListaV) {
+void cargarVotantesSimples(PtrT_Votante& ListaV) {
     FILE* archivo;
     errno_t err = fopen_s(&archivo, "PADRON_COMPLETO.txt", "r");
     if (err != 0) {
@@ -164,7 +164,7 @@ void cargarvotantes(PtrT_Votante& ListaV) {
         while (!feof(archivo)) {
             char agregado[118];
             fgets(agregado, 118, archivo);
-            agregarvotante(ListaV, agregado);
+            agregarVotanteSimple(ListaV, agregado);
         }
         fclose(archivo);
     }

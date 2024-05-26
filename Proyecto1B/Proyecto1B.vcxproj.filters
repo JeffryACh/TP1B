@@ -33,9 +33,6 @@
     <ClCompile Include="ListaDEnlazadaVotantes.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="listaEnlazada.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="PADRON_COMPLETO.txt" />

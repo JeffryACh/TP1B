@@ -52,7 +52,7 @@ typedef struct T_Votante { //Se define la estructura para los votantes
 
 //Funcion para agregar un votante, recibe como parametro la raiz del arbol de votantes y la LINEA DE TEXTO del padron electoral
 //extrae cada uno de los atributos de la linea y los almacena en un nodo del arbol de votantes
-void agregarvotante(PtrT_Votante& Raiz, char agregado[118]) {
+void agregarVotanteBinario(PtrT_Votante& Raiz, char agregado[118]) {
 	PtrT_Votante Aux = new (T_Votante);
 	Aux->PtrIzquierdo = nullptr;
 	Aux->PtrDerecho = nullptr;
@@ -97,9 +97,9 @@ void agregarvotante(PtrT_Votante& Raiz, char agregado[118]) {
 }
 
 //Funcion para imprimir el arbol de votantes
-void imprimirvotantes(PtrT_Votante Raiz) {
+void imprimirVotantesBinarios(PtrT_Votante Raiz) {
 	if (Raiz != nullptr) {
-		imprimirvotantes(Raiz->PtrIzquierdo);
+		imprimirVotantesBinarios(Raiz->PtrIzquierdo);
 		cout << "Cedula: " << Raiz->cedula << endl;
 		cout << "Codigo Electoral: " << Raiz->codelec << endl;
 		cout << "Sexo: " << Raiz->sexo << endl;
@@ -109,12 +109,12 @@ void imprimirvotantes(PtrT_Votante Raiz) {
 		cout << "Primer Apellido: " << Raiz->papellido << endl;
 		cout << "Segundo Apellido: " << Raiz->sapellido << endl;
 		cout << endl;
-		imprimirvotantes(Raiz->PtrDerecho);
+		imprimirVotantesBinarios(Raiz->PtrDerecho);
 	}
 }
 
 //Funcion para buscar un votante por cedula
-PtrT_Votante buscarvotante(PtrT_Votante Raiz, char cedula[10]) {
+PtrT_Votante buscarVotanteBinario(PtrT_Votante Raiz, char cedula[10]) {
 	if (Raiz == nullptr) {
 		return nullptr;
 	}
@@ -122,23 +122,23 @@ PtrT_Votante buscarvotante(PtrT_Votante Raiz, char cedula[10]) {
 		return Raiz;
 	}
 	if (strcmp(cedula, Raiz->cedula) < 0) {
-		return buscarvotante(Raiz->PtrIzquierdo, cedula);
+		return buscarVotanteBinario(Raiz->PtrIzquierdo, cedula);
 	}
 	else {
-		return buscarvotante(Raiz->PtrDerecho, cedula);
+		return buscarVotanteBinario(Raiz->PtrDerecho, cedula);
 	}
 }
 
 //Funcion para eliminar un votante por cedula
-void eliminarvotante(PtrT_Votante& Raiz, char cedula[10]) {
+void eliminarVotanteBinario(PtrT_Votante& Raiz, char cedula[10]) {
 	if (Raiz == nullptr) {
 		return;
 	}
 	if (strcmp(cedula, Raiz->cedula) < 0) {
-		eliminarvotante(Raiz->PtrIzquierdo, cedula);
+		eliminarVotanteBinario(Raiz->PtrIzquierdo, cedula);
 	}
 	else if (strcmp(cedula, Raiz->cedula) > 0) {
-		eliminarvotante(Raiz->PtrDerecho, cedula);
+		eliminarVotanteBinario(Raiz->PtrDerecho, cedula);
 	}
 	else {
 		if (Raiz->PtrIzquierdo == nullptr && Raiz->PtrDerecho == nullptr) {
@@ -168,24 +168,24 @@ void eliminarvotante(PtrT_Votante& Raiz, char cedula[10]) {
 			strcpy_s(Raiz->nombre, sizeof(Raiz->nombre), Aux->nombre);
 			strcpy_s(Raiz->papellido, sizeof(Raiz->papellido), Aux->papellido);
 			strcpy_s(Raiz->sapellido, sizeof(Raiz->sapellido), Aux->sapellido);
-			eliminarvotante(Raiz->PtrDerecho, Aux->cedula);
+			eliminarVotanteBinario(Raiz->PtrDerecho, Aux->cedula);
 		}
 	}
 }
 
 
 //Funcion para liberar la memoria del arbol de votantes
-void liberarvotantes(PtrT_Votante& Raiz) {
+void liberarVotantesBinarios(PtrT_Votante& Raiz) {
 	if (Raiz != nullptr) {
-		liberarvotantes(Raiz->PtrIzquierdo);
-		liberarvotantes(Raiz->PtrDerecho);
+		liberarVotantesBinarios(Raiz->PtrIzquierdo);
+		liberarVotantesBinarios(Raiz->PtrDerecho);
 		delete Raiz;
 		Raiz = nullptr;
 	}
 }
 
 //Funcion para ordenar los votantes por cedula
-void OrdenarVotantes(PtrT_Votante& Raiz) {
+void OrdenarVotantesBinarios(PtrT_Votante& Raiz) {
 	PtrT_Votante Aux1, Aux2, Aux3;
 	char cedula[10], codelec[7], sexo, fecha[9], numjun[6], nombre[31], papellido[27], sapellido[27];
 	Aux1 = Raiz;
@@ -228,24 +228,13 @@ void OrdenarVotantes(PtrT_Votante& Raiz) {
 	}
 }
 
-////Funcion para guardar los votantes en un archivo de texto aparte
-//void guardarvotantes(PtrT_Votante Raiz) {
-//	PtrT_Votante Aux = Raiz;
-//	FILE* archivo;
-//	archivo = fopen("Votantes.txt", "w");
-//	while (Aux != nullptr) {
-//		fprintf(archivo, "%s %s %c %s %s %s %s %s\n", Aux->cedula, Aux->codelec, Aux->sexo, Aux->fecha, Aux->numjun, Aux->nombre, Aux->papellido, Aux->sapellido);
-//		Aux = Aux->PtrDerecho;
-//	}
-//	fclose(archivo);
-//}
 
 //Funcion para inicializar la lista de votantes
-void inicializarvotantes(PtrT_Votante& Raiz) {
+void inicializarVotantesBinarios(PtrT_Votante& Raiz) {
 	Raiz = nullptr;
 }
 
-void CargarVotantes(PtrT_Votante& Raiz) {
+void CargarVotantesBinarios(PtrT_Votante& Raiz) {
 	FILE* archivo;
 	errno_t err = fopen_s(&archivo, "PADRON_COMPLETO.txt", "r");
 	if (err != 0) {
@@ -254,8 +243,29 @@ void CargarVotantes(PtrT_Votante& Raiz) {
 	else {
 		char linea[118];
 		while (fgets(linea, 118, archivo)) {
-			agregarvotante(Raiz, linea);
+			agregarVotanteBinario(Raiz, linea);
 		}
 		fclose(archivo);
+	}
+}
+
+// guarda en un archivo de nombre 'VotantesBinarios.txt'
+void GuardarVotantesBinarios(PtrT_Votante& Raiz) {
+	FILE* archivo;
+	errno_t err = fopen_s(&archivo, "VotantesBinarios.txt", "w");
+	if (err != 0) {
+		cout << "Error al abrir el archivo" << endl;
+	}
+	else {
+		guardarVotantesBinarios(Raiz, archivo);
+	}
+	fclose(archivo);
+}
+
+void guardarVotantesBinarios(PtrT_Votante& Raiz, FILE* archivo) {
+	PtrT_Votante aux = Raiz;
+	while (aux != nullptr) {
+		fprintf(archivo, "%s %s %c %s %s %s %s %s\n", aux->cedula, aux->codelec, aux->sexo, aux->fecha, aux->numjun, aux->nombre, aux->papellido, aux->sapellido);
+		aux = aux->PtrDerecho;
 	}
 }

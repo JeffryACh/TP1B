@@ -68,12 +68,12 @@ PtrT_VotanteDoble Aux = ListaVD;
 	while (Aux != NULL) {
 		cout << Aux->cedula << " " << Aux->codelec << " " << Aux->sexo << " " << Aux->fecha << " " << Aux->numjun << " " << Aux->nombre << " " << Aux->papellido << " " << Aux->sapellido << endl;
 		Aux = Aux->PtrSiguiente;
-	}}
+	}
 }
 
 //Funcion para buscar un votante por cedula
-PtrT_Votante buscarvotante(PtrT_Votante ListaV, char cedula[10]) {
-	PtrT_Votante Aux = ListaV;
+PtrT_VotanteDoble buscarvotante(PtrT_VotanteDoble ListaV, char cedula[10]) {
+	PtrT_VotanteDoble Aux = ListaV;
 	while (Aux != NULL) {
 		if (strcmp(Aux->cedula, cedula) == 0) {
 			return Aux;
@@ -84,56 +84,60 @@ PtrT_Votante buscarvotante(PtrT_Votante ListaV, char cedula[10]) {
 }
 
 //Funcion para eliminar un votante por cedula
-void eliminarvotante(PtrT_Votante& ListaV, char cedula[10]) {
-	PtrT_Votante Aux = ListaV;
-	PtrT_Votante Ant = NULL;
-	while (Aux != NULL) {
-		if (strcmp(Aux->cedula, cedula) == 0) {
-			if (Ant == NULL) {
-				ListaV = Aux->PtrSiguiente;
-			}
-			else {
-				Ant->PtrSiguiente = Aux->PtrSiguiente;
-			}
-			delete Aux;
-			return;
+void eliminarvotante(PtrT_VotanteDoble& ListaV, char cedula[10]) {
+	PtrT_VotanteDoble Aux = ListaV;
+	PtrT_VotanteDoble prev = NULL;
+
+	// If the list is empty
+	if (Aux == NULL) {
+		return;
+	}
+
+	// If the first node is the one to be deleted
+	if (strcmp(Aux->cedula, cedula) == 0) {
+		ListaV = Aux->PtrSiguiente;
+		if (ListaV != NULL) {
+			ListaV->PtrAnterior = NULL;
 		}
-		Ant = Aux;
+		delete Aux;
+		return;
+	}
+
+	// Traverse the list
+	while (Aux != NULL && strcmp(Aux->cedula, cedula) != 0) {
+		prev = Aux;
 		Aux = Aux->PtrSiguiente;
+	}
+
+	// If the node is found
+	if (Aux != NULL) {
+		prev->PtrSiguiente = Aux->PtrSiguiente;
+		if (Aux->PtrSiguiente != NULL) {
+			Aux->PtrSiguiente->PtrAnterior = prev;
+		}
+		delete Aux;
 	}
 }
 
 //Funcion para liberar la memoria de la lista de votantes
-void liberarvotantes(PtrT_Votante& ListaV) {
-	PtrT_Votante Aux = ListaV;
+void liberarvotantes(PtrT_VotanteDoble& ListaV) {
+	PtrT_VotanteDoble Aux = ListaV;
 	while (Aux != NULL) {
 		ListaV = Aux->PtrSiguiente;
 		delete Aux;
 		Aux = ListaV;
 	}
-	cout << "----------------------------Padron liberado--------------------------------" << endl;
-	system("pause");
 }
 
 //Funcion para inicializar la lista de votantes
-void inicializarvotantes(PtrT_Votante& ListaV) {
+void inicializarVotantesDobles(PtrT_VotanteDoble& ListaV) {
 	ListaV = NULL;
 }
 
-////Funcion para guardar la lista de votantes en un archivo de texto aparte
-//void guardarvotantes(PtrT_Votante ListaV) {
-//	PtrT_Votante Aux = ListaV;
-//	FILE* archivo;
-//	archivo = fopen("Votantes.txt", "w");
-//	while (Aux != NULL) {
-//		fprintf(archivo, "%s %s %c %s %s %s %s %s\n", Aux->cedula, Aux->codelec, Aux->sexo, Aux->fecha, Aux->numjun, Aux->nombre, Aux->papellido, Aux->sapellido);
-//		Aux = Aux->PtrSiguiente;
-//	}
-//	fclose(archivo);
-//}
+
 
 //Funcion para cargar la lista de votantes desde un archivo de texto
-void cargarvotantes(PtrT_Votante& ListaV) {
+void cargarVotantesDobles(PtrT_VotanteDoble& ListaV) {
 	FILE* archivo;
 	errno_t err = fopen_s(&archivo, "PADRON_COMPLETO.txt", "r");
 	if (err != 0) {
@@ -143,8 +147,27 @@ void cargarvotantes(PtrT_Votante& ListaV) {
 		while (!feof(archivo)) {
 			char agregado[118];
 			fgets(agregado, 118, archivo);
-			agregarvotante(ListaV, agregado);
+			agregarVotanteDoble(ListaV, agregado);
 		}
 		fclose(archivo);
 	}
+}
+
+// Esta funcion guarda los votantes en un archivo de nombre 'VotantesDobles.txt'
+void GuardarVotantesDobles(PtrT_VotanteDoble& ListaV) {
+	FILE* archivo;
+	fopen_s(&archivo, "VotantesDobles.txt", "w");
+	if (NULL == archivo) {
+		printf("No se pudo abrir el archivo");
+	}
+	else {
+		PtrT_VotanteDoble Aux = ListaV;
+		while (Aux != NULL) {
+			fprintf(archivo, "%s %s %c %s %s %s %s %s\n", Aux->cedula, Aux->codelec, Aux->sexo, Aux->fecha, Aux->numjun, Aux->nombre, Aux->papellido, Aux->sapellido);
+			Aux = Aux->PtrSiguiente;
+		}
+		fclose(archivo);
+	}
+	cout << "----------------------------Votantes guardados--------------------------------" << endl;
+	system("pause");
 }

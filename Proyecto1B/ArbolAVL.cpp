@@ -52,7 +52,7 @@ typedef struct T_Votante { //Se define la estructura para los votantes
 //Funcion para agregar un votante, recibe como parametro la raiz del arbol de votantes y la LINEA DE TEXTO del padron electoral
 //extrae cada uno de los atributos de la linea y los almacena en un nodo del arbol de votantes
 
-void agregarvotante(PtrT_Votante& Raiz, char agregado[118]) {
+void agregarVotanteAVL(PtrT_Votante& Raiz, char agregado[118]) {
 	PtrT_Votante Aux = new (T_Votante);
 	Aux->PtrIzquierdo = nullptr;
 	Aux->PtrDerecho = nullptr;
@@ -97,10 +97,10 @@ void agregarvotante(PtrT_Votante& Raiz, char agregado[118]) {
 }
 
 //Funcion para imprimir la lista de votantes
-void imprimirvotantes(PtrT_Votante Raiz) {
+void imprimirVotantesAVL(PtrT_Votante Raiz) {
 	PtrT_Votante Aux = Raiz;
 	if (Aux != NULL) {
-		imprimirvotantes(Aux->PtrIzquierdo);
+		imprimirVotantesAVL(Aux->PtrIzquierdo);
 		cout << "Cedula: " << Aux->cedula << endl;
 		cout << "Codigo Electoral: " << Aux->codelec << endl;
 		cout << "Sexo: " << Aux->sexo << endl;
@@ -110,12 +110,12 @@ void imprimirvotantes(PtrT_Votante Raiz) {
 		cout << "Primer Apellido: " << Aux->papellido << endl;
 		cout << "Segundo Apellido: " << Aux->sapellido << endl;
 		cout << endl;
-		imprimirvotantes(Aux->PtrDerecho);
+		imprimirVotantesAVL(Aux->PtrDerecho);
 	}
 }
 
 //Funcion para buscar un votante por cedula
-PtrT_Votante buscarvotante(PtrT_Votante Raiz, char cedula[10]) {
+PtrT_Votante buscarVotanteAVL(PtrT_Votante Raiz, char cedula[10]) {
 	PtrT_Votante Aux = Raiz;
 	while (Aux != NULL) {
 		if (strcmp(Aux->cedula, cedula) == 0) {
@@ -132,7 +132,7 @@ PtrT_Votante buscarvotante(PtrT_Votante Raiz, char cedula[10]) {
 }
 
 //Funcion para eliminar un votante por cedula
-void eliminarvotante(PtrT_Votante& Raiz, char cedula[10]) {
+void eliminarVotanteAVL(PtrT_Votante& Raiz, char cedula[10]) {
 	PtrT_Votante Aux = Raiz;
 	PtrT_Votante Ant = NULL;
 	while (Aux != NULL) {
@@ -194,11 +194,11 @@ void eliminarvotante(PtrT_Votante& Raiz, char cedula[10]) {
 }
 
 //Funcion para liberar la memoria de la lista de votantes
-void liberarvotantes(PtrT_Votante& Raiz) {
+void liberarVotantesAVL(PtrT_Votante& Raiz) {
 	PtrT_Votante Aux = Raiz;
 	if (Aux != NULL) {
-		liberarvotantes(Aux->PtrIzquierdo);
-		liberarvotantes(Aux->PtrDerecho);
+		liberarVotantesAVL(Aux->PtrIzquierdo);
+		liberarVotantesAVL(Aux->PtrDerecho);
 		delete Aux;
 	}
 }
@@ -263,31 +263,31 @@ void balancear(PtrT_Votante& Raiz) {
 }
 
 //Funcion para agregar un nodo al arbol AVL
-void agregarAVL(PtrT_Votante& Raiz, char agregado[118]) {
+void agregarVotantesAVL(PtrT_Votante& Raiz, char agregado[118]) {
 	if (Raiz == NULL) {
-		agregarvotante(Raiz, agregado);
+		agregarVotanteAVL(Raiz, agregado);
 	}
 	else {
 		if (strcmp(agregado, Raiz->cedula) < 0) {
-			agregarAVL(Raiz->PtrIzquierdo, agregado);
+			agregarVotantesAVL(Raiz->PtrIzquierdo, agregado);
 		}
 		else {
-			agregarAVL(Raiz->PtrDerecho, agregado);
+			agregarVotantesAVL(Raiz->PtrDerecho, agregado);
 		}
 		balancear(Raiz);
 	}
 }
 
 //Funcion para eliminar un nodo del arbol AVL
-void eliminarAVL(PtrT_Votante& Raiz, char cedula[10]) {
+void eliminarVotanteAVL(PtrT_Votante& Raiz, char cedula[10]) {
 	if (Raiz == NULL) {
 		return;
 	}
 	if (strcmp(cedula, Raiz->cedula) < 0) {
-		eliminarAVL(Raiz->PtrIzquierdo, cedula);
+		eliminarVotanteAVL(Raiz->PtrIzquierdo, cedula);
 	}
 	else if (strcmp(cedula, Raiz->cedula) > 0) {
-		eliminarAVL(Raiz->PtrDerecho, cedula);
+		eliminarVotanteAVL(Raiz->PtrDerecho, cedula);
 	}
 	else {
 		if (Raiz->PtrIzquierdo == NULL && Raiz->PtrDerecho == NULL) {
@@ -317,14 +317,14 @@ void eliminarAVL(PtrT_Votante& Raiz, char cedula[10]) {
 			strcpy_s(Raiz->nombre, sizeof(Raiz->nombre), Aux->nombre);
 			strcpy_s(Raiz->papellido, sizeof(Raiz->papellido), Aux->papellido);
 			strcpy_s(Raiz->sapellido, sizeof(Raiz->sapellido), Aux->sapellido);
-			eliminarAVL(Raiz->PtrDerecho, Aux->cedula);
+			eliminarVotanteAVL(Raiz->PtrDerecho, Aux->cedula);
 		}
 	}
 	balancear(Raiz);
 }
 
 //Funcion para buscar un votante por cedula en el arbol AVL
-PtrT_Votante buscarAVL(PtrT_Votante Raiz, char cedula[10]) {
+PtrT_Votante buscarVotanteAVL(PtrT_Votante Raiz, char cedula[10]) {
 	if (Raiz == nullptr) {
 		return nullptr;
 	}
@@ -332,27 +332,27 @@ PtrT_Votante buscarAVL(PtrT_Votante Raiz, char cedula[10]) {
 		return Raiz;
 	}
 	if (strcmp(cedula, Raiz->cedula) < 0) {
-		return buscarAVL(Raiz->PtrIzquierdo, cedula);
+		return buscarVotanteAVL(Raiz->PtrIzquierdo, cedula);
 	}
 	else {
-		return buscarAVL(Raiz->PtrDerecho, cedula);
+		return buscarVotanteAVL(Raiz->PtrDerecho, cedula);
 	}
 }
 
 //Funcion para liberar la memoria de un arbol AVL
-void liberarAVL(PtrT_Votante& Raiz) {
+void liberarVotantesAVL(PtrT_Votante& Raiz) {
 	if (Raiz == NULL) {
 		return;
 	}
-	liberarAVL(Raiz->PtrIzquierdo);
-	liberarAVL(Raiz->PtrDerecho);
+	liberarVotantesAVL(Raiz->PtrIzquierdo);
+	liberarVotantesAVL(Raiz->PtrDerecho);
 	delete Raiz;
 }
 
 //Funcion para imprimir el arbol AVL
-void imprimirAVL(PtrT_Votante Raiz) {
+void imprimirVotantesAVL(PtrT_Votante Raiz) {
 	if (Raiz != NULL) {
-		imprimirAVL(Raiz->PtrIzquierdo);
+		imprimirVotantesAVL(Raiz->PtrIzquierdo);
 		cout << "Cedula: " << Raiz->cedula << endl;
 		cout << "Codigo Electoral: " << Raiz->codelec << endl;
 		cout << "Sexo: " << Raiz->sexo << endl;
@@ -362,7 +362,7 @@ void imprimirAVL(PtrT_Votante Raiz) {
 		cout << "Primer Apellido: " << Raiz->papellido << endl;
 		cout << "Segundo Apellido: " << Raiz->sapellido << endl;
 		cout << endl;
-		imprimirAVL(Raiz->PtrDerecho);
+		imprimirVotantesAVL(Raiz->PtrDerecho);
 	}
 }
 
@@ -377,21 +377,33 @@ void cargarVotantesAVL(PtrT_Votante& Raiz) {
 	else {
 		while (!feof(archivo)) {
 			fgets(agregado, 118, archivo);
-			agregarAVL(Raiz, agregado);
+			agregarVotantesAVL(Raiz, agregado);
 		}
 	}
 	fclose(archivo);
 }
 
-//Funcion para guardar los votantes del arbol AVL en un archivo de texto a parte
-//void guardarVotantesAVL(PtrT_Votante Raiz) {
-//	FILE* archivo;
-//	archivo = fopen("VotantesAVL.txt", "w");
-//	if (archivo == NULL) {
-//		cout << "Error al abrir el archivo" << endl;
-//	}
-//	else {
-//		imprimirAVL(Raiz);
-//	}
-//	fclose(archivo);
-//}
+void GuardarVotantesAVL(PtrT_Votante& Raiz) {
+    FILE* archivo;
+    fopen_s(&archivo, "VotantesAVL.txt", "w");
+    if (archivo == NULL) {
+        printf("No se pudo abrir el archivo");
+        return;
+    }
+
+    guardarVotantesAVL(Raiz, archivo);
+
+    fclose(archivo);
+}
+
+void guardarVotantesAVL(PtrT_Votante& Raiz, FILE* archivo) {
+    if (Raiz == NULL) {
+        return;
+    }
+
+    guardarVotantesAVL(Raiz->PtrIzquierdo, archivo);
+
+    fprintf(archivo, "%s %s %c %s %s %s %s %s\n", Raiz->cedula, Raiz->codelec, Raiz->sexo, Raiz->fecha, Raiz->numjun, Raiz->nombre, Raiz->papellido, Raiz->sapellido);
+
+    guardarVotantesAVL(Raiz->PtrDerecho, archivo);
+}
